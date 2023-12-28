@@ -27,7 +27,7 @@ setup(
     author_email="qrnnis2623891@gmail.com",
     url="https://github.com/twmht/python-rocksdb",
     license='BSD License',
-    setup_requires=['setuptools>=25', 'Cython>=0.20'],
+    setup_requires=['setuptools>=25', 'Cython>=0.20,<3.0'],
     install_requires=['setuptools>=25'],
     package_dir={'rocksdb': 'rocksdb'},
     packages=find_packages('.'),
