@@ -3,6 +3,12 @@
 .. |conda-badge| image:: https://anaconda.org/conda-forge/python-rocksdb/badges/installer/conda.svg
    :target: https://anaconda.org/conda-forge/python-rocksdb
 
+My notes
+========
+
+I'm maintaining this repository to refer as a submodule for my python-rocksdb extensions builds on different architectures (mostly armv7l).
+
+
 Note
 =========
 The original pyrocksdb (https://pypi.python.org/pypi/pyrocksdb/0.4) has not been updated for long time. I update pyrocksdb to support the latest rocksdb. Please open issues in github if you have any problem.

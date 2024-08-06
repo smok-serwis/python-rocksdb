@@ -36,7 +36,7 @@ setup(
         ['rocksdb/_rocksdb.pyx'],
         include_dirs=os.path.join(os.getcwd(), 'include'),
         extra_compile_args=extra_compile_args,
-        extra_objects=['librocksdb.so'],
+        extra_objects=['librocksdb.a'],
         language='c++',
         libraries=['snappy', 'bz2', 'z', 'lz4'],
     )],
