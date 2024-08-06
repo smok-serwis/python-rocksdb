@@ -30,7 +30,7 @@ setup(
     setup_requires=['setuptools>=25', 'Cython>=0.20,<3.0'],
     install_requires=['setuptools>=25'],
     package_dir={'rocksdb': 'rocksdb'},
-    packages=find_packages('.'),
+    packages=find_packages('rocksdb'),
     ext_modules=[Extension(
         'rocksdb._rocksdb',
         ['rocksdb/_rocksdb.pyx'],

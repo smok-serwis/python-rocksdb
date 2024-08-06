@@ -8,6 +8,7 @@ My notes
 
 I'm maintaining this repository to refer as a submodule for my python-rocksdb extensions builds on different architectures (mostly armv7l).
 
+The results of this collaboration are kept on our server, but still should be [public](https://git.dms-serwis.com.pl/smokserwis/rocksdb-compile).
 
 Note
 =========
