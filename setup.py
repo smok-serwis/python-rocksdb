@@ -18,6 +18,17 @@ extra_compile_args = [
 if platform.system() == 'Darwin':
     extra_compile_args += ['-mmacosx-version-min=10.7', '-stdlib=libc++']
 
+ext_modules = [Extension(
+        'rocksdb._rocksdb',
+        ['rocksdb/_rocksdb.pyx'],
+        include_dirs=os.path.join(os.getcwd(), '..', 'rocksdb', 'include'),
+        extra_compile_args=extra_compile_args,
+        extra_objects=['librocksdb.so'],
+        language='c++',
+        libraries=['snappy', 'bz2', 'z', 'lz4'],
+    )]
+for e in ext_modules:
+    e.cython_directives = {'language_level': '3'}
 
 setup(
     name="python-rocksdb",
@@ -32,15 +43,7 @@ setup(
     install_requires=['setuptools>=25'],
     package_dir={'rocksdb': 'rocksdb'},
     packages=find_packages('rocksdb'),
-    ext_modules=[Extension(
-        'rocksdb._rocksdb',
-        ['rocksdb/_rocksdb.pyx'],
-        include_dirs=os.path.join(os.getcwd(), '..', 'rocksdb', 'include'),
-        extra_compile_args=extra_compile_args,
-        extra_objects=['librocksdb.so'],
-        language='c++',
-        libraries=['snappy', 'bz2', 'z', 'lz4'],
-    )],
+    ext_modules=ext_modules,
     extras_require={
         "doc": ['sphinx_rtd_theme', 'sphinx'],
     },
