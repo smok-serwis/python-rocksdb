@@ -1,3 +1,4 @@
+import os
 import platform
 from setuptools import setup
 from setuptools import find_packages
@@ -34,15 +35,14 @@ setup(
     ext_modules=[Extension(
         'rocksdb._rocksdb',
         ['rocksdb/_rocksdb.pyx'],
-        include_dirs=os.path.join(os.getcwd(), 'include'),
+        include_dirs=os.path.join(os.getcwd(), '..', 'rocksdb', 'include'),
         extra_compile_args=extra_compile_args,
-        extra_objects=['librocksdb.a'],
+        extra_objects=['librocksdb.so'],
         language='c++',
         libraries=['snappy', 'bz2', 'z', 'lz4'],
     )],
     extras_require={
         "doc": ['sphinx_rtd_theme', 'sphinx'],
-        "test": ['pytest'],
     },
     include_package_data=True,
     zip_safe=False,
