@@ -19,14 +19,14 @@ if platform.system() == 'Darwin':
     extra_compile_args += ['-mmacosx-version-min=10.7', '-stdlib=libc++']
 
 arch = os.environ['ARCHITECTURE']
-env_path = f'/usr/lib/gcc/{arch}-gcc/12/include'
 
 
 ext_modules = [Extension(
         'rocksdb._rocksdb',
         ['rocksdb/_rocksdb.pyx'],
         include_dirs=[os.path.join(os.getcwd(), '..', 'rocksdb', 'include'),
-                      env_path],
+                      env_path, '/usr/include/linux', '/usr/include/c++/12',
+                      '/usr/include'],
         extra_compile_args=extra_compile_args,
         extra_objects=['librocksdb.so'],
         language='c++',
