@@ -25,7 +25,7 @@ ext_modules = [Extension(
         'rocksdb._rocksdb',
         ['rocksdb/_rocksdb.pyx'],
         include_dirs=[os.path.join(os.getcwd(), '..', 'rocksdb', 'include'),
-                      env_path, '/usr/include/linux', '/usr/include/c++/12',
+                      '/usr/include/linux', '/usr/include/c++/12',
                       '/usr/include', '/usr/local/include'],
         extra_compile_args=extra_compile_args,
         extra_objects=['librocksdb.so'],
